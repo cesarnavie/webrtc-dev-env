@@ -35,7 +35,7 @@ fetch --nohooks webrtc
 
 # get source code of specific commit
 cd src
-git checkout 51e2046db
+git checkout 9f7e2a90da2432886 #M65
 cd ..
 
 # prepare dependent libraries
