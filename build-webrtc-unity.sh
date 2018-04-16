@@ -40,7 +40,7 @@ cd ..
 
 # prepare dependent libraries
 export CHROME_HEADLESS=1 # a magic to skip interactive license agreement
-echo "target_os = [ 'android' ]" >> .gclient
+echo "target_os = [ 'windows' ]" >> .gclient
 gclient sync
 unset CHROME_HEADLESS
 
@@ -48,26 +48,26 @@ unset CHROME_HEADLESS
 
 # export targets
 cd src
-echo '{ global: *; };' >  build/android/android_only_jni_exports.lst
-echo '{ global: *; };' >  build/android/android_only_explicit_jni_exports.lst
+#echo '{ global: *; };' >  build/android/android_only_jni_exports.lst
+#echo '{ global: *; };' >  build/android/android_only_explicit_jni_exports.lst
 
 # generate ninja build files
-gn gen out/Android --args='target_os="win" target_cpu="x64"'
+gn gen out/Windows --args='target_os="win" target_cpu="x64"'
 
 # build library .so file
-ninja -C out/Android webrtc_unity_plugin
+ninja -C out/Windows webrtc_unity_plugin
 
 # .... wait ....
 
 # copy and rename .so file to ~/webrtc
-cp out/Android/libwebrtc_unity_plugin.so ../libjingle_peerconnection_so.so
+cp out/Windows/libwebrtc_unity_plugin.so ../libjingle_peerconnection_so.so
 
 # build java library
-ninja -C out/Android libwebrtc_unity
+ninja -C out/Windows libwebrtc_unity
 
 # .. wait ..
 
 # copy jar file to ~/webrtc
-cp out/Android/lib.java/examples/libwebrtc_unity.jar ../.
+cp out/Windows/lib.java/examples/libwebrtc_unity.jar ../.
 
 cd ..
