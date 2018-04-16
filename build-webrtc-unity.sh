@@ -52,7 +52,7 @@ echo '{ global: *; };' >  build/android/android_only_jni_exports.lst
 echo '{ global: *; };' >  build/android/android_only_explicit_jni_exports.lst
 
 # generate ninja build files
-gn gen out/Android --args='target_os="android" target_cpu="arm"'
+gn gen out/Android --args='target_os="win" target_cpu="x64"'
 
 # build library .so file
 ninja -C out/Android webrtc_unity_plugin
