@@ -39,5 +39,5 @@ jobs:
             go get github.com/aktau/github-release
             export RELEASE=go-ws/bin/github-release
             export TAG=${CIRCLE_BRANCH}_`date --utc '+%Y%m%d_%H%M%S'`
-            ${RELEASE} -v -q release -u mhama -r webrtc-dev-env --tag ${TAG} --pre-release
-            ${RELEASE} -v upload -u mhama -r webrtc-dev-env --tag ${TAG} --name libwebrtc_unity.zip --file ./libwebrtc_unity.zip -R
+            ${RELEASE} -v -q release -u cesarnavie -r webrtc-dev-env --tag ${TAG} --pre-release
+            ${RELEASE} -v upload -u cesarnavie -r webrtc-dev-env --tag ${TAG} --name libwebrtc_unity.zip --file ./libwebrtc_unity.zip -R
